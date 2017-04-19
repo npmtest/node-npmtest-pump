@@ -1,5 +1,7 @@
-<html lang="en"><head>
-    <title>Code coverage report for node-npmtest-pump/pump/index.js</title>
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for node-npmtest-pump/node_modules/pump/index.js</title>
     <meta charset="utf-8">
     <style>
         body, html {
@@ -192,7 +194,7 @@
     <h1 style="font-weight: bold;">
         <a href="https://github.com/npmtest/node-npmtest-pump">npmtest-pump (v0.0.1)</a>
     </h1>
-    <h1>Code coverage report for <span class="entity">node-npmtest-pump/pump/index.js</span></h1>
+    <h1>Code coverage report for <span class="entity">node-npmtest-pump/node_modules/pump/index.js</span></h1>
     <h2>
         
         Statements: <span class="metric">19.35% <small>(12 / 62)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
@@ -208,11 +210,11 @@
         
         Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
     </h2>
-    <div class="path"><a href="../../index.html">All files</a> » <a href="index.html">node-npmtest-pump/pump/</a> » index.js</div>
+    <div class="path"><a href="../../../index.html">All files</a> &#187; <a href="index.html">node-npmtest-pump/node_modules/pump/</a> &#187; index.js</div>
 </div>
 <div class="body">
 <pre><table class="coverage">
-<tbody><tr><td class="line-count">1
+<tr><td class="line-count">1
 2
 3
 4
@@ -378,89 +380,88 @@
 var eos = require('end-of-stream')
 var fs = require('fs') // we only need fs to get the ReadStream and WriteStream prototypes
 &nbsp;
-var noop = <span class="fstat-no" title="function not covered">function () {</span>}
+var noop = <span class="fstat-no" title="function not covered" >function () {</span>}
 &nbsp;
-var isFn = <span class="fstat-no" title="function not covered">function (fn) {</span>
-<span class="cstat-no" title="statement not covered">  return typeof fn === 'function'</span>
+var isFn = <span class="fstat-no" title="function not covered" >function (fn) {</span>
+<span class="cstat-no" title="statement not covered" >  return typeof fn === 'function'</span>
 }
 &nbsp;
-var isFS = <span class="fstat-no" title="function not covered">function (stream) {</span>
-<span class="cstat-no" title="statement not covered">  if (!fs) <span class="cstat-no" title="statement not covered">return false </span></span>// browser
-<span class="cstat-no" title="statement not covered">  return (stream instanceof (fs.ReadStream || noop) || stream instanceof (fs.WriteStream || noop)) &amp;&amp; isFn(stream.close)</span>
+var isFS = <span class="fstat-no" title="function not covered" >function (stream) {</span>
+<span class="cstat-no" title="statement not covered" >  if (!fs) <span class="cstat-no" title="statement not covered" >return false </span></span>// browser
+<span class="cstat-no" title="statement not covered" >  return (stream instanceof (fs.ReadStream || noop) || stream instanceof (fs.WriteStream || noop)) &amp;&amp; isFn(stream.close)</span>
 }
 &nbsp;
-var isRequest = <span class="fstat-no" title="function not covered">function (stream) {</span>
-<span class="cstat-no" title="statement not covered">  return stream.setHeader &amp;&amp; isFn(stream.abort)</span>
+var isRequest = <span class="fstat-no" title="function not covered" >function (stream) {</span>
+<span class="cstat-no" title="statement not covered" >  return stream.setHeader &amp;&amp; isFn(stream.abort)</span>
 }
 &nbsp;
-var destroyer = <span class="fstat-no" title="function not covered">function (stream, reading, writing, callback) {</span>
-<span class="cstat-no" title="statement not covered">  callback = once(callback)</span>
+var destroyer = <span class="fstat-no" title="function not covered" >function (stream, reading, writing, callback) {</span>
+<span class="cstat-no" title="statement not covered" >  callback = once(callback)</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered">  var closed = false</span>
-<span class="cstat-no" title="statement not covered">  stream.on('close', <span class="fstat-no" title="function not covered">function () {</span></span>
-<span class="cstat-no" title="statement not covered">    closed = true</span>
+<span class="cstat-no" title="statement not covered" >  var closed = false</span>
+<span class="cstat-no" title="statement not covered" >  stream.on('close', <span class="fstat-no" title="function not covered" >function () {</span></span>
+<span class="cstat-no" title="statement not covered" >    closed = true</span>
   })
 &nbsp;
-<span class="cstat-no" title="statement not covered">  eos(stream, {readable: reading, writable: writing}, <span class="fstat-no" title="function not covered">function (err) {</span></span>
-<span class="cstat-no" title="statement not covered">    if (err) <span class="cstat-no" title="statement not covered">return callback(err)</span></span>
-<span class="cstat-no" title="statement not covered">    closed = true</span>
-<span class="cstat-no" title="statement not covered">    callback()</span>
+<span class="cstat-no" title="statement not covered" >  eos(stream, {readable: reading, writable: writing}, <span class="fstat-no" title="function not covered" >function (err) {</span></span>
+<span class="cstat-no" title="statement not covered" >    if (err) <span class="cstat-no" title="statement not covered" >return callback(err)</span></span>
+<span class="cstat-no" title="statement not covered" >    closed = true</span>
+<span class="cstat-no" title="statement not covered" >    callback()</span>
   })
 &nbsp;
-<span class="cstat-no" title="statement not covered">  var destroyed = false</span>
-<span class="cstat-no" title="statement not covered">  return <span class="fstat-no" title="function not covered">function (err) {</span></span>
-<span class="cstat-no" title="statement not covered">    if (closed) <span class="cstat-no" title="statement not covered">return</span></span>
-<span class="cstat-no" title="statement not covered">    if (destroyed) <span class="cstat-no" title="statement not covered">return</span></span>
-<span class="cstat-no" title="statement not covered">    destroyed = true</span>
+<span class="cstat-no" title="statement not covered" >  var destroyed = false</span>
+<span class="cstat-no" title="statement not covered" >  return <span class="fstat-no" title="function not covered" >function (err) {</span></span>
+<span class="cstat-no" title="statement not covered" >    if (closed) <span class="cstat-no" title="statement not covered" >return</span></span>
+<span class="cstat-no" title="statement not covered" >    if (destroyed) <span class="cstat-no" title="statement not covered" >return</span></span>
+<span class="cstat-no" title="statement not covered" >    destroyed = true</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered">    if (isFS(stream)) <span class="cstat-no" title="statement not covered">return stream.close() </span></span>// use close for fs streams to avoid fd leaks
-<span class="cstat-no" title="statement not covered">    if (isRequest(stream)) <span class="cstat-no" title="statement not covered">return stream.abort() </span></span>// request.destroy just do .end - .abort is what we want
+<span class="cstat-no" title="statement not covered" >    if (isFS(stream)) <span class="cstat-no" title="statement not covered" >return stream.close() </span></span>// use close for fs streams to avoid fd leaks
+<span class="cstat-no" title="statement not covered" >    if (isRequest(stream)) <span class="cstat-no" title="statement not covered" >return stream.abort() </span></span>// request.destroy just do .end - .abort is what we want
 &nbsp;
-<span class="cstat-no" title="statement not covered">    if (isFn(stream.destroy)) <span class="cstat-no" title="statement not covered">return stream.destroy()</span></span>
+<span class="cstat-no" title="statement not covered" >    if (isFn(stream.destroy)) <span class="cstat-no" title="statement not covered" >return stream.destroy()</span></span>
 &nbsp;
-<span class="cstat-no" title="statement not covered">    callback(err || new Error('stream was destroyed'))</span>
+<span class="cstat-no" title="statement not covered" >    callback(err || new Error('stream was destroyed'))</span>
   }
 }
 &nbsp;
-var call = <span class="fstat-no" title="function not covered">function (fn) {</span>
-<span class="cstat-no" title="statement not covered">  fn()</span>
+var call = <span class="fstat-no" title="function not covered" >function (fn) {</span>
+<span class="cstat-no" title="statement not covered" >  fn()</span>
 }
 &nbsp;
-var pipe = <span class="fstat-no" title="function not covered">function (from, to) {</span>
-<span class="cstat-no" title="statement not covered">  return from.pipe(to)</span>
+var pipe = <span class="fstat-no" title="function not covered" >function (from, to) {</span>
+<span class="cstat-no" title="statement not covered" >  return from.pipe(to)</span>
 }
 &nbsp;
-var pump = <span class="fstat-no" title="function not covered">function () {</span>
-<span class="cstat-no" title="statement not covered">  var streams = Array.prototype.slice.call(arguments)</span>
-<span class="cstat-no" title="statement not covered">  var callback = isFn(streams[streams.length - 1] || noop) &amp;&amp; streams.pop() || noop</span>
+var pump = <span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >  var streams = Array.prototype.slice.call(arguments)</span>
+<span class="cstat-no" title="statement not covered" >  var callback = isFn(streams[streams.length - 1] || noop) &amp;&amp; streams.pop() || noop</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered">  if (Array.isArray(streams[0])) <span class="cstat-no" title="statement not covered">streams = streams[0]</span></span>
-<span class="cstat-no" title="statement not covered">  if (streams.length &lt; 2) <span class="cstat-no" title="statement not covered">throw new Error('pump requires two streams per minimum')</span></span>
+<span class="cstat-no" title="statement not covered" >  if (Array.isArray(streams[0])) <span class="cstat-no" title="statement not covered" >streams = streams[0]</span></span>
+<span class="cstat-no" title="statement not covered" >  if (streams.length &lt; 2) <span class="cstat-no" title="statement not covered" >throw new Error('pump requires two streams per minimum')</span></span>
 &nbsp;
-<span class="cstat-no" title="statement not covered">  var error</span>
-<span class="cstat-no" title="statement not covered">  var destroys = streams.map(<span class="fstat-no" title="function not covered">function (stream, i) {</span></span>
-<span class="cstat-no" title="statement not covered">    var reading = i &lt; streams.length - 1</span>
-<span class="cstat-no" title="statement not covered">    var writing = i &gt; 0</span>
-<span class="cstat-no" title="statement not covered">    return destroyer(stream, reading, writing, <span class="fstat-no" title="function not covered">function (err) {</span></span>
-<span class="cstat-no" title="statement not covered">      if (!error) <span class="cstat-no" title="statement not covered">error = err</span></span>
-<span class="cstat-no" title="statement not covered">      if (err) <span class="cstat-no" title="statement not covered">destroys.forEach(call)</span></span>
-<span class="cstat-no" title="statement not covered">      if (reading) <span class="cstat-no" title="statement not covered">return</span></span>
-<span class="cstat-no" title="statement not covered">      destroys.forEach(call)</span>
-<span class="cstat-no" title="statement not covered">      callback(error)</span>
+<span class="cstat-no" title="statement not covered" >  var error</span>
+<span class="cstat-no" title="statement not covered" >  var destroys = streams.map(<span class="fstat-no" title="function not covered" >function (stream, i) {</span></span>
+<span class="cstat-no" title="statement not covered" >    var reading = i &lt; streams.length - 1</span>
+<span class="cstat-no" title="statement not covered" >    var writing = i &gt; 0</span>
+<span class="cstat-no" title="statement not covered" >    return destroyer(stream, reading, writing, <span class="fstat-no" title="function not covered" >function (err) {</span></span>
+<span class="cstat-no" title="statement not covered" >      if (!error) <span class="cstat-no" title="statement not covered" >error = err</span></span>
+<span class="cstat-no" title="statement not covered" >      if (err) <span class="cstat-no" title="statement not covered" >destroys.forEach(call)</span></span>
+<span class="cstat-no" title="statement not covered" >      if (reading) <span class="cstat-no" title="statement not covered" >return</span></span>
+<span class="cstat-no" title="statement not covered" >      destroys.forEach(call)</span>
+<span class="cstat-no" title="statement not covered" >      callback(error)</span>
     })
   })
 &nbsp;
-<span class="cstat-no" title="statement not covered">  return streams.reduce(pipe)</span>
+<span class="cstat-no" title="statement not covered" >  return streams.reduce(pipe)</span>
 }
 &nbsp;
 module.exports = pump
 &nbsp;
 &nbsp;</pre></td></tr>
-</tbody></table></pre>
+</table></pre>
 </div>
 <div class="footer">
-    <div class="meta">Generated by <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a> at Tue Apr 11 2017 13:34:59 GMT+0000 (UTC)</div>
+    <div class="meta">Generated by <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a> at Wed Apr 19 2017 05:10:17 GMT+0000 (UTC)</div>
 </div>
-
-
-</body></html>
+</body>
+</html>
